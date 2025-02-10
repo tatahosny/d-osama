@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المهام</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>M - SoftTech</h2>
+            <ul>
+                <li><a href="index.html">🏠 الرئيسية</a></li>
+                <li><a href="users.html">👥 إدارة المستخدمين</a></li>
+                <li><a href="tasks.html">📝 إدارة المهام</a></li>
+                <li><a href="performance.html">📊 تقييم الأداء</a></li>
+                <li><a href="settings.html">⚙️ الإعدادات</a></li>
+                <li><a href="support.html">📞 الدعم</a></li>
+                <li class="logout"><a href="#">🚪 تسجيل الخروج</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>إدارة المهام</h1>
+                <button onclick="addTask()">➕ إضافة مهمة جديدة</button>
+            </header>
+
+            <section class="task-list">
+                <h2>قائمة المهام</h2>
+                <ul id="tasks">
+                    <li>جارِ التحميل...</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function addTask() {
+            let taskName = prompt("أدخل اسم المهمة الجديدة:");
+            let visibility = prompt("من يستطيع رؤية هذه المهمة؟ (دكتور / معيد / مندوب دفعة / مندوب سكشن / الجميع)");
+
+            if (taskName) {
+                let taskList = document.getElementById("tasks");
+                let newTask = document.createElement("li");
+                newTask.innerHTML = `<strong>${taskName}</strong> - مرئي لـ: ${visibility}`;
+                taskList.appendChild(newTask);
+            }
+        }
+    </script>
+</body>
+</html>
