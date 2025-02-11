@@ -1,6 +1,8 @@
 function toggleMenu() {
-    document.querySelector(".sidebar").classList.toggle("active");
+    let sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("active");
 }
+
 }
 document.getElementById("toggleDarkMode").addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
