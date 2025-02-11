@@ -18,33 +18,30 @@ body {
     min-height: 100vh;
 }
 
-/* 🎨 الشريط الجانبي */
+/* الشريط الجانبي الافتراضي */
 .sidebar {
-    width: 280px;
-    background: #2F6D5A;
+    width: 250px;
+    background: #333;
     color: white;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    right: 0;
-    top: 0;
     height: 100vh;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0; /* إبقاء القائمة مرئية على الشاشات الكبيرة */
+    transition: right 0.3s ease-in-out;
 }
-
-/* ✅ إخفاء الشريط الجانبي افتراضيًا في الشاشات الصغيرة */
-@media (max-width: 992px) {
-    .sidebar {
-        transform: translateX(100%);
+/* إخفاء القائمة افتراضيًا على الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
     }
-}
 
-/* ✅ عند فتح القائمة */
-.sidebar.active {
-    transform: translateX(0);
+.sidebar {
+        right: -250px; /* إخفاء القائمة خارج الشاشة */
+    }
+
+    .sidebar.active {
+        right: 0; /* إظهار القائمة عند الضغط */
+    }
 }
 
 /* 🔹 محتوى القائمة */
@@ -118,16 +115,18 @@ header {
 
 /* 🎯 زر القائمة */
 .menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #2F6D5A;
-    cursor: pointer;
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 15px;
+    font-size: 24px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
     z-index: 1000;
+    display: none; /* إخفاء الزر على الشاشات الكبيرة */
 }
 
 /* ✅ إظهار الزر في الشاشات الصغيرة */
